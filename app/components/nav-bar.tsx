@@ -12,7 +12,7 @@ export const NavBar: FC = () => {
           Home
         </Link>
         <Link
-          href="/nested-layout"
+          href="/blogs"
           className="rounded bg-gray-700 px-3 py-2 text-white hover:bg-gray-500"
         >
           Nested Layout with Blogs
