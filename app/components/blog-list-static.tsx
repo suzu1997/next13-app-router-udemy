@@ -7,7 +7,8 @@ type Blog = Database['public']['Tables']['blogs']['Row']
 const fetchBlogs = async () => {
   const res = await fetch(`${process.env.url}/rest/v1/blogs?select=*`, {
     headers: new Headers({ apikey: process.env.apikey as string }),
-    cache: 'no-store',
+    // cache: 'no-store',
+    cache: 'force-cache',
   })
   if (!res.ok) {
     throw new Error('Failed to fetch data in server')

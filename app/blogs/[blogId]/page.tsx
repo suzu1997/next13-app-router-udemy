@@ -17,7 +17,7 @@ const fetchBlog = async (blogId: string) => {
     `${process.env.url}/rest/v1/blogs?id=eq.${blogId}&select=*`,
     {
       headers: new Headers({ apikey: process.env.apikey as string }),
-      cache: 'no-store',
+      cache: 'force-cache',
     }
   )
   const blogs: Blog[] = await res.json()
@@ -48,4 +48,15 @@ export default async function BlogDetailPage({ params }: PropsType) {
       </Link>
     </div>
   )
+}
+
+export async function generateStaticParams() {
+  const res = await fetch(`${process.env.url}/rest/v1/blogs?select=*`, {
+    headers: new Headers({ apikey: process.env.apikey as string }),
+  })
+  const blogs: Blog[] = await res.json()
+
+  return blogs.map((blog) => ({
+    blogId: blog.id,
+  }))
 }
