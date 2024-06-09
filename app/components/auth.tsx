@@ -2,10 +2,10 @@
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid'
-import { createClient } from '@/utils/supabase'
 import { useStore } from '@/store'
+import { createClient } from '@/utils/supabase/client'
 
-export const Auth = () =>  {
+export const Auth = () => {
   const supabase = createClient()
   const { loginUser } = useStore()
   const [isLogin, setIsLogin] = useState(true)

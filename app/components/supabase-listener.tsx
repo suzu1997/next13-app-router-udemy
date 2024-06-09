@@ -1,14 +1,10 @@
 'use client'
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createClient } from '@/utils/supabase'
 import { useStore } from '@/store'
+import { createClient } from '@/utils/supabase/client'
 
-export const SupabaseListener = ({
-  accessToken,
-}: {
-  accessToken?: string
-}) => {
+export const SupabaseListener = ({ accessToken }: { accessToken?: string }) => {
   const supabase = createClient()
   const router = useRouter()
   const { updateLoginUser } = useStore()
