@@ -1,4 +1,4 @@
-import { Database } from '@/database.types'
+import { type Database } from '@/database.types'
 import { ArrowUturnLeftIcon } from '@heroicons/react/20/solid'
 import format from 'date-fns/format'
 import Link from 'next/link'
